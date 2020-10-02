@@ -1,0 +1,14 @@
+.item {
+  display: flex;
+  flex-basis: 300px;
+  justify-content: space-between;
+}
+
+.sect__btn {
+  display: flex;
+  align-items: center;
+}
+
+.contact {
+  margin-left: 20px;
+}
