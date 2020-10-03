@@ -9,7 +9,7 @@ const ContactListItem = ({ name, id, number, onRemove }) => {
       <p>{name}:</p>
       <p>{number}</p>
       <section className={s.sect__btn}>
-        <button type="button" onClick={onRemove}>
+        <button className={s.btn} type="button" onClick={onRemove}>
           Delete
         </button>
       </section>

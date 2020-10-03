@@ -29,27 +29,31 @@ export default class ContactForm extends Component {
     return (
       <form onSubmit={this.handleSubmit} className={s.form}>
         <label className={s.label}>
-          Name
+          Name:
           <input
             className={s.input}
             type="text"
             name="name"
             value={this.state.name}
             onChange={this.handleChange}
+            placeholder="Enter name"
           />
         </label>
         <label className={s.label}>
-          Number
+          Number:
           <input
             className={s.input}
-            // type="number"
+            type="text"
             name="number"
             value={this.state.number}
             onChange={this.handleChange}
+            placeholder="Enter number"
           ></input>
         </label>
 
-        <button type="submit">Add contact</button>
+        <button type="submit" className={s.btn}>
+          Add contact
+        </button>
       </form>
     );
   }

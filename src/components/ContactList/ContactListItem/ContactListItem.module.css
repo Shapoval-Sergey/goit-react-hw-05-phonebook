@@ -1,0 +1,20 @@
+.item {
+  display: flex;
+  min-width: 400px;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  font-size: 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.sect__btn {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  background-color: rgb(243, 6, 6);
+  border-color: transparent;
+  color: rgb(156, 198, 235);
+  font-size: 16px;
+}

@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { CSSTransition } from "react-transition-group";
 
 import ContactForm from "./ContactForm/ContactForm";
 import ContactList from "./ContactList/ContactList";
 import Filter from "./Filter/Filter";
+import errorMessage from "../components/Notification/Notification";
 
 import s from "./App.module.css";
 
@@ -45,7 +47,7 @@ export default class App extends Component {
     );
 
     if (names.includes(contact.name.toLowerCase().trim())) {
-      alert(`${contact.name} is already in contacts`);
+      errorMessage(contact.name);
     } else {
       this.setState((prevState) => {
         return {
@@ -79,12 +81,27 @@ export default class App extends Component {
     const visibleContacts = this.getVisibleContacts();
     return (
       <div className={s.box}>
-        <h1>Phonebook</h1>
+        <CSSTransition
+          in={true}
+          appear
+          timeout={500}
+          classNames={s}
+          unmountOnExit
+        >
+          <h1 className={s.title}>Phonebook</h1>
+        </CSSTransition>
+
         <ContactForm onAddContact={this.addContact} />
 
-        <h2>Contacts</h2>
         {visibleContacts.length > 0 && (
-          <Filter value={filter} onChangeFilter={this.changeFilter} />
+          <CSSTransition
+            in={true}
+            timeout={250}
+            classNames={s.filter}
+            unmountOnExit
+          >
+            <Filter value={filter} onChangeFilter={this.changeFilter} />
+          </CSSTransition>
         )}
 
         <ContactList
